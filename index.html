@@ -87,6 +87,18 @@
             opacity: 1;
             transform: translateY(0);
         }
+        
+        /* Feztech logo hover animation */
+        .feztech-logo {
+            border: 2px solid white;
+            border-radius: 4px;
+            padding: 3px;
+            transition: transform 0.3s ease;
+        }
+        
+        .feztech-logo:hover {
+            transform: rotate(-10deg);
+        }
     </style>
 </head>
 <body class="bg-gray-100">
@@ -194,9 +206,9 @@
                 <div class="md:w-2/5 mb-10 md:mb-0 scroll-animate">
                     <h2 class="text-3xl font-bold mb-4 font-heading">Create strategies for the reversal process</h2>
                     <p class="text-lg">
-                        Develop personalized strategies to help you break unwanted habits. 
-                        Armatillo guides you through creating competing responses and stimulus controls 
-                        tailored to your specific needs.
+                       Develop personalized strategies to help you break unwanted habits. 
+                       Armatillo guides you through creating competing responses and stimulus controls 
+                       tailored to your specific needs.
                     </p>
                 </div>
                 <div class="md:w-3/5 flex justify-center scroll-animate">
@@ -267,7 +279,9 @@
         <div class="container mx-auto px-6">
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <div class="mb-4 md:mb-0">
-                    <img src="images/feztech-logo.png" alt="Feztech Logo" class="h-8">
+                    <a href="https://feztech.io" target="_blank">
+                        <img src="images/feztech-logo.png" alt="Feztech Logo" class="h-8 feztech-logo">
+                    </a>
                 </div>
                 <div>
                     <p>&copy; 2025 Armatillo. All rights reserved.</p>

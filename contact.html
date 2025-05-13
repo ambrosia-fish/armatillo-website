@@ -46,6 +46,17 @@
         h1, h2, h3, h4, h5, h6 {
             font-family: 'Outfit', sans-serif;
         }
+        /* Feztech logo hover animation */
+        .feztech-logo {
+            border: 2px solid white;
+            border-radius: 4px;
+            padding: 3px;
+            transition: transform 0.3s ease;
+        }
+        
+        .feztech-logo:hover {
+            transform: rotate(-10deg);
+        }
     </style>
 </head>
 <body class="bg-gray-100">
@@ -53,7 +64,7 @@
     <header x-data="{ mobileMenuOpen: false }" class="fixed w-full bg-primary text-white bg-opacity-95 shadow-sm z-50">
         <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
             <div class="flex items-center">
-                <a href="index.html" class="text-2xl font-bold font-heading text-white">Armatillo</a>
+               <a href="index.html" class="text-2xl font-bold font-heading text-white">Armatillo</a>
             </div>
             
             <!-- Desktop Navigation -->
@@ -100,9 +111,9 @@
                     action="https://api.web3forms.com/submit"
                     method="POST"
                     x-data="{ 
-                        isSubmitting: false,
-                        submitSuccess: false,
-                        submitError: false
+                       isSubmitting: false,
+                       submitSuccess: false,
+                       submitError: false
                     }"
                     x-on:submit="isSubmitting = true"
                     class="bg-white rounded-lg shadow-md p-6 mb-8"
@@ -168,7 +179,9 @@
         <div class="container mx-auto px-6">
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <div class="mb-4 md:mb-0">
-                    <img src="images/feztech-logo.png" alt="Feztech Logo" class="h-8">
+                    <a href="https://feztech.io" target="_blank">
+                        <img src="images/feztech-logo.png" alt="Feztech Logo" class="h-8 feztech-logo">
+                    </a>
                 </div>
                 <div>
                     <p>&copy; 2025 Armatillo. All rights reserved.</p>
