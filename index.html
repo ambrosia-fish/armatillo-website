@@ -11,6 +11,9 @@
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
+    <!-- Google Fonts: Outfit for headings and Inter for body text -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
     <!-- Custom Tailwind config -->
     <script>
         tailwind.config = {
@@ -28,6 +31,7 @@
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif'],
                     },
                 }
             }
@@ -38,6 +42,10 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Outfit', sans-serif;
         }
         
         .section {
@@ -86,7 +94,7 @@
     <header x-data="{ mobileMenuOpen: false }" class="fixed w-full bg-primary text-white bg-opacity-95 shadow-sm z-50">
         <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
             <div class="flex items-center">
-                <a href="index.html" class="text-2xl font-bold text-white">Armatillo</a>
+                <a href="index.html" class="text-2xl font-bold text-white font-heading">Armatillo</a>
             </div>
             
             <!-- Desktop Navigation -->
@@ -124,8 +132,8 @@
         <div class="container mx-auto px-6">
             <div class="flex flex-col md:flex-row items-center">
                 <div class="md:w-1/2 mb-10 md:mb-0">
-                    <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-6">Welcome to Armatillo!</h1>
-                    <h2 class="text-2xl md:text-3xl mb-6">A habit reversal tracker</h2>
+                    <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-6 font-heading">Welcome to Armatillo!</h1>
+                    <h2 class="text-2xl md:text-3xl mb-6 font-heading">A habit reversal tracker</h2>
                     <p class="text-lg mb-8">Track and break unwanted body-focused repetitive behaviors with our specialized app.</p>
                     <a href="#features" class="bg-primary text-white px-6 py-3 rounded-lg font-medium hover:bg-primary-dark transition duration-200">Learn More</a>
                 </div>
@@ -141,7 +149,7 @@
         <div class="container mx-auto px-6">
             <div class="flex flex-col md:flex-row items-center">
                 <div class="md:w-2/5 mb-10 md:mb-0 scroll-animate">
-                    <h2 class="text-3xl font-bold mb-4">Track the habit you wish to reverse!</h2>
+                    <h2 class="text-3xl font-bold mb-4 font-heading">Track the habit you wish to reverse!</h2>
                     <p class="text-lg">
                         Monitor your progress with Armatillo's comprehensive tracking tools. 
                         Record when habits occur, identify patterns, and see your improvement over time.
@@ -159,7 +167,7 @@
         <div class="container mx-auto px-6">
             <div class="flex flex-col md:flex-row-reverse items-center">
                 <div class="md:w-2/5 mb-10 md:mb-0 scroll-animate">
-                    <h2 class="text-3xl font-bold text-primary mb-4">Identify triggers that lead to habit engagement</h2>
+                    <h2 class="text-3xl font-bold text-primary mb-4 font-heading">Identify triggers that lead to habit engagement</h2>
                     <p class="text-lg text-gray-600">
                         Armatillo helps you recognize patterns and situations that trigger your body-focused repetitive behaviors. 
                         By understanding your triggers, you can develop effective strategies to break the habit cycle.
@@ -177,7 +185,7 @@
         <div class="container mx-auto px-6">
             <div class="flex flex-col md:flex-row items-center">
                 <div class="md:w-2/5 mb-10 md:mb-0 scroll-animate">
-                    <h2 class="text-3xl font-bold mb-4">Create strategies for the reversal process</h2>
+                    <h2 class="text-3xl font-bold mb-4 font-heading">Create strategies for the reversal process</h2>
                     <p class="text-lg">
                         Develop personalized strategies to help you break unwanted habits. 
                         Armatillo guides you through creating competing responses and stimulus controls 
@@ -196,7 +204,7 @@
         <div class="container mx-auto px-6">
             <div class="flex flex-col md:flex-row-reverse items-center">
                 <div class="md:w-2/5 mb-10 md:mb-0 scroll-animate">
-                    <h2 class="text-3xl font-bold text-primary mb-4">Instead of engaging in your habit, use a strategy instead!</h2>
+                    <h2 class="text-3xl font-bold text-primary mb-4 font-heading">Instead of engaging in your habit, use a strategy instead!</h2>
                     <p class="text-lg text-gray-600">
                         When you feel the urge to engage in your habit, Armatillo helps you implement 
                         alternative strategies. Access your personalized competing responses and stimulus controls 
@@ -215,7 +223,7 @@
         <div class="container mx-auto px-6">
             <div class="flex flex-col md:flex-row items-center">
                 <div class="md:w-2/5 mb-10 md:mb-0 scroll-animate">
-                    <h2 class="text-3xl font-bold mb-4">Dill, the armadillo, will react to your progress and encourage you along the way!</h2>
+                    <h2 class="text-3xl font-bold mb-4 font-heading">Dill, the armadillo, will react to your progress and encourage you along the way!</h2>
                     <p class="text-lg">
                         Meet Dill, your supportive companion throughout your habit reversal journey.
                         Dill celebrates your successes and provides encouragement when you need it most.
@@ -231,7 +239,7 @@
     <!-- Contact Section - Stacked vertical layout -->
     <section id="contact" class="section-compact bg-white text-primary py-6">
         <div class="container mx-auto px-6 text-center">
-            <h2 class="text-xl font-bold mb-2">Armatillo is in pre-alpha</h2>
+            <h2 class="text-xl font-bold mb-2 font-heading">Armatillo is in pre-alpha</h2>
             <p class="mb-2">
                 Interested in testing?
             </p>
