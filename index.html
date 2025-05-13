@@ -60,6 +60,12 @@
             }
         }
         
+        /* Compact section for contact */
+        .section-compact {
+            min-height: auto;
+            padding: 2.5rem 0;
+        }
+        
         /* Image styling for desktop - removed container styles */
         .app-screenshot {
             max-width: 100%;
@@ -214,19 +220,22 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="section bg-primary text-white py-16">
+    <!-- Contact Section - Made much more compact -->
+    <section id="contact" class="section-compact bg-primary text-white py-8">
         <div class="container mx-auto px-6 text-center">
-            <h2 class="text-3xl font-bold mb-6" data-aos="fade-up">Armatillo is in pre-alpha</h2>
-            <p class="text-xl mb-10 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
-                If you are interested in the app or becoming a tester, please email at:
-            </p>
-            <a href="mailto:josef@feztech.io" class="text-2xl font-bold hover:underline" data-aos="fade-up" data-aos-delay="200">
-                josef@feztech.io
-            </a>
-            <p class="mt-10 text-xl" data-aos="fade-up" data-aos-delay="300">
-                Thanks for your interest!
-            </p>
+            <div class="flex flex-col md:flex-row items-center justify-center">
+                <div class="md:mr-8 mb-4 md:mb-0">
+                    <h2 class="text-xl font-bold" data-aos="fade-up">Armatillo is in pre-alpha</h2>
+                </div>
+                <div>
+                    <p class="inline mr-3" data-aos="fade-up">
+                        Interested in testing?
+                    </p>
+                    <a href="mailto:josef@feztech.io" class="font-bold hover:underline" data-aos="fade-up">
+                        josef@feztech.io
+                    </a>
+                </div>
+            </div>
         </div>
     </section>
 
