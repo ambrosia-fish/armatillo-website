@@ -1,0 +1,64 @@
+/* Custom styles for Armatillo website */
+
+/* Smooth scrolling for the entire page */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom animations */
+.fade-in {
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Custom styles for the feature sections */
+.feature-section {
+  transition: all 0.3s ease;
+}
+
+.feature-section:hover {
+  transform: translateY(-5px);
+}
+
+/* Custom button styles */
+.btn-primary {
+  @apply bg-primary text-white py-2 px-6 rounded-lg font-medium transition duration-200;
+}
+
+.btn-primary:hover {
+  @apply bg-primary-dark;
+}
+
+/* Custom card styles */
+.card {
+  @apply bg-white rounded-lg shadow-lg p-6;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  @apply shadow-xl;
+  transform: translateY(-5px);
+}
+
+/* Image styles */
+.app-screenshot {
+  @apply rounded-lg shadow-md;
+  border: 5px solid white;
+}
+
+/* Custom section divider */
+.section-divider {
+  height: 100px;
+  background: linear-gradient(to bottom right, #424f7b, #5a6795);
+  clip-path: polygon(0 0, 100% 0, 100% 70%, 0 100%);
+}
