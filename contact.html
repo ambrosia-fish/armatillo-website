@@ -88,31 +88,59 @@
                     Interested in Armatillo or have questions? Get in touch with us using the form below.
                 </p>
                 
-                <!-- Contact Form using Formspree -->
-                <!-- Replace "YOUR_FORMSPREE_ENDPOINT" with your actual Formspree form ID -->
-                <form action="https://formspree.io/f/YOUR_FORMSPREE_ENDPOINT" method="POST" class="bg-white rounded-lg shadow-md p-6 mb-8">
+                <!-- Contact Form - Simple form that uses mailto: -->
+                <form x-data="{ 
+                    formData: { name: '', email: '', message: '' },
+                    submitSuccess: false,
+                    
+                    submitForm() {
+                        // Format the message with line breaks
+                        const formattedMessage = `Name: ${this.formData.name}\nEmail: ${this.formData.email}\n\n${this.formData.message}`;
+                        
+                        // Create mailto URL with form data
+                        const subject = encodeURIComponent(`Armatillo Website Contact: ${this.formData.name}`);
+                        const body = encodeURIComponent(formattedMessage);
+                        const mailtoUrl = `mailto:josef@feztech.io?subject=${subject}&body=${body}`;
+                        
+                        // Open default email client
+                        window.location.href = mailtoUrl;
+                        
+                        // Show success message
+                        this.submitSuccess = true;
+                        
+                        // Hide success message after 5 seconds
+                        setTimeout(() => {
+                            this.submitSuccess = false;
+                        }, 5000);
+                    }
+                }" 
+                @submit.prevent="submitForm()"
+                class="bg-white rounded-lg shadow-md p-6 mb-8">
+                
+                    <!-- Success message -->
+                    <div x-show="submitSuccess" class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4">
+                        <p>Your email client has been opened. Please send the pre-filled email to complete your message submission.</p>
+                    </div>
+                    
                     <!-- Form fields -->
                     <div class="mb-4">
                         <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Name</label>
-                        <input type="text" id="name" name="name" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary" required>
+                        <input type="text" id="name" x-model="formData.name" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary" required>
                     </div>
                     
                     <div class="mb-4">
                         <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Email</label>
-                        <input type="email" id="email" name="email" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary" required>
+                        <input type="email" id="email" x-model="formData.email" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary" required>
                     </div>
                     
                     <div class="mb-6">
                         <label for="message" class="block text-gray-700 text-sm font-bold mb-2">Message</label>
-                        <textarea id="message" name="message" rows="5" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary" required></textarea>
+                        <textarea id="message" x-model="formData.message" rows="5" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary" required></textarea>
                     </div>
-                    
-                    <!-- Anti-spam honeypot field (hidden) -->
-                    <input type="text" name="_gotcha" style="display:none">
                     
                     <div class="flex items-center justify-between">
                         <button type="submit" class="bg-primary text-white px-6 py-2 rounded-md font-medium hover:bg-primary-dark transition duration-200">
-                            Send Message
+                            Open Email Client
                         </button>
                         
                         <div class="text-sm text-gray-500">
