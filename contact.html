@@ -10,15 +10,6 @@
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- EmailJS -->
-    <script type="text/javascript" src="https://cdn.emailjs.com/sdk/2.3.2/email.min.js"></script>
-    <script type="text/javascript">
-        (function() {
-            // Add your EmailJS user ID and service ID here
-            emailjs.init("YOUR_USER_ID"); // Replace with your EmailJS user ID
-        })();
-    </script>
     
     <!-- Custom Tailwind config -->
     <script>
@@ -106,32 +97,15 @@
                     
                     submitForm() {
                         this.isSubmitting = true;
-                        
-                        // EmailJS parameters
-                        const templateParams = {
-                            from_name: this.formData.name,
-                            from_email: this.formData.email,
-                            message: this.formData.message
-                        };
-                        
-                        // Send email using EmailJS
-                        emailjs.send(
-                            'YOUR_SERVICE_ID', // Replace with your EmailJS service ID
-                            'YOUR_TEMPLATE_ID', // Replace with your EmailJS template ID
-                            templateParams
-                        )
-                        .then((response) => {
-                            console.log('SUCCESS!', response.status, response.text);
+                        // Simulate form submission - in a real scenario, you'd POST to a server
+                        setTimeout(() => {
+                            // This is where you'd normally handle the response
                             this.isSubmitting = false;
                             this.submitSuccess = true;
+                            
                             // Reset form
                             this.formData = { name: '', email: '', message: '' };
-                        })
-                        .catch((error) => {
-                            console.log('FAILED...', error);
-                            this.isSubmitting = false;
-                            this.submitError = true;
-                        });
+                        }, 1000);
                     }
                 }" 
                 @submit.prevent="submitForm()"
@@ -144,7 +118,7 @@
                     
                     <!-- Error message -->
                     <div x-show="submitError" class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
-                        <p>There was an error sending your message. Please try again or email us directly.</p>
+                        <p>There was an error sending your message. Please try again.</p>
                     </div>
                     
                     <!-- Form fields -->
@@ -199,7 +173,7 @@
     </footer>
 
     <script>
-        // Any additional page-specific JavaScript can go here
+        // Functionality specific to contact page could go here
     </script>
 </body>
 </html>
