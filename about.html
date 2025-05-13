@@ -11,6 +11,9 @@
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
+    <!-- Google Fonts: Outfit for headings and Inter for body text -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
     <!-- Custom Tailwind config -->
     <script>
         tailwind.config = {
@@ -28,6 +31,7 @@
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif'],
                     },
                 }
             }
@@ -39,6 +43,10 @@
         body {
             font-family: 'Inter', sans-serif;
         }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Outfit', sans-serif;
+        }
     </style>
 </head>
 <body class="bg-gray-100">
@@ -46,7 +54,7 @@
     <header x-data="{ mobileMenuOpen: false }" class="fixed w-full bg-primary text-white bg-opacity-95 shadow-sm z-50">
         <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
             <div class="flex items-center">
-                <a href="index.html" class="text-2xl font-bold text-white">Armatillo</a>
+                <a href="index.html" class="text-2xl font-bold text-white font-heading">Armatillo</a>
             </div>
             
             <!-- Desktop Navigation -->
@@ -83,11 +91,11 @@
     <section class="pt-24 bg-white">
         <div class="container mx-auto px-6 py-16">
             <div class="max-w-3xl mx-auto">
-                <h1 class="text-4xl font-bold text-primary mb-6 text-center">About Armatillo</h1>
+                <h1 class="text-4xl font-bold text-primary mb-6 text-center font-heading">About Armatillo</h1>
                 
                 <!-- App Description -->
                 <div class="mb-12">
-                    <h2 class="text-2xl font-bold text-primary mb-4">About the App</h2>
+                    <h2 class="text-2xl font-bold text-primary mb-4 font-heading">About the App</h2>
                     <p class="text-gray-600 mb-4">
                         Armatillo is a specialized habit reversal tracker app designed specifically for those struggling with 
                         Body-Focused Repetitive Behaviors (BFRBs). It was created by someone who has personal experience with 
@@ -115,7 +123,7 @@
                             </div>
                         </div>
                         <div class="md:w-2/3">
-                            <h2 class="text-2xl font-bold text-primary mb-3">Meet the Developer</h2>
+                            <h2 class="text-2xl font-bold text-primary mb-3 font-heading">Meet the Developer</h2>
                             <p class="text-gray-600 mb-3">
                                 Armatillo was created by Josef, a developer and game developer based in Providence, Rhode Island. 
                                 With personal experience with BFRBs, Josef designed Armatillo to be the app he wished existed 
