@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Armatillo - Habit Reversal Tracker</title>
+    
+    <!-- Alpine.js -->
+    <script defer src="https://unpkg.com/alpinejs@3.12.3/dist/cdn.min.js"></script>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- AOS library for scroll animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Custom Tailwind config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            DEFAULT: '#424f7b', // The blue color from your images
+                            light: '#5a6795',
+                            dark: '#323c5f',
+                        },
+                        secondary: {
+                            DEFAULT: '#f0f3ff', // Light background color
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom styles -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .section {
+            min-height: 100vh;
+            padding: 4rem 0;
+            display: flex;
+            align-items: center;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <!-- Navigation -->
+    <header x-data="{ mobileMenuOpen: false }" class="fixed w-full bg-white bg-opacity-95 shadow-sm z-50">
+        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <a href="#" class="text-2xl font-bold text-primary">Armatillo</a>
+            </div>
+            
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex space-x-10">
+                <a href="#home" class="text-primary hover:text-primary-dark">Home</a>
+                <a href="#features" class="text-primary hover:text-primary-dark">Features</a>
+                <a href="#about" class="text-primary hover:text-primary-dark">About</a>
+                <a href="#contact" class="text-primary hover:text-primary-dark">Contact</a>
+            </div>
+            
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden">
+                <button @click="mobileMenuOpen = !mobileMenuOpen" class="text-primary focus:outline-none">
+                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path x-show="!mobileMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        <path x-show="mobileMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+        
+        <!-- Mobile Menu -->
+        <div x-show="mobileMenuOpen" @click.away="mobileMenuOpen = false" class="md:hidden bg-white">
+            <div class="px-2 pt-2 pb-4 space-y-1 sm:px-3">
+                <a href="#home" @click="mobileMenuOpen = false" class="block px-3 py-2 text-primary hover:bg-primary hover:text-white rounded-md">Home</a>
+                <a href="#features" @click="mobileMenuOpen = false" class="block px-3 py-2 text-primary hover:bg-primary hover:text-white rounded-md">Features</a>
+                <a href="#about" @click="mobileMenuOpen = false" class="block px-3 py-2 text-primary hover:bg-primary hover:text-white rounded-md">About</a>
+                <a href="#contact" @click="mobileMenuOpen = false" class="block px-3 py-2 text-primary hover:bg-primary hover:text-white rounded-md">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="section pt-24 bg-primary text-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0" data-aos="fade-right">
+                    <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-6">Welcome to Armatillo!</h1>
+                    <h2 class="text-2xl md:text-3xl mb-6">A habit reversal tracker</h2>
+                    <p class="text-lg mb-8">Track and break unwanted body-focused repetitive behaviors with our specialized app.</p>
+                    <a href="#features" class="bg-white text-primary px-6 py-3 rounded-lg font-medium hover:bg-gray-100 transition duration-200">Learn More</a>
+                </div>
+                <div class="md:w-1/2 flex justify-center" data-aos="fade-left">
+                    <img src="images/armatillo-mascot.png" alt="Armatillo mascot" class="h-auto w-3/4 max-w-sm">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature 1: Identify Triggers -->
+    <section id="features" class="section bg-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0" data-aos="fade-right">
+                    <h2 class="text-3xl font-bold text-primary mb-6">Identify triggers that lead to habit engagement</h2>
+                    <p class="text-lg text-gray-600 mb-8">
+                        Armatillo helps you recognize patterns and situations that trigger your body-focused repetitive behaviors. 
+                        By understanding your triggers, you can develop effective strategies to break the habit cycle.
+                    </p>
+                </div>
+                <div class="md:w-1/2 flex justify-center" data-aos="fade-left">
+                    <img src="images/trigger-screen.png" alt="Armatillo trigger screen" class="rounded-lg shadow-xl h-auto w-3/4 max-w-sm">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature 2: Create Strategies -->
+    <section class="section bg-gray-100">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row-reverse items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0" data-aos="fade-left">
+                    <h2 class="text-3xl font-bold text-primary mb-6">Create strategies for the reversal process</h2>
+                    <p class="text-lg text-gray-600 mb-8">
+                        Develop personalized strategies to help you break unwanted habits. 
+                        Armatillo guides you through creating competing responses and stimulus controls 
+                        tailored to your specific needs.
+                    </p>
+                </div>
+                <div class="md:w-1/2 flex justify-center" data-aos="fade-right">
+                    <img src="images/strategy-screen.png" alt="Armatillo strategy screen" class="rounded-lg shadow-xl h-auto w-3/4 max-w-sm">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature 3: Use Strategies -->
+    <section class="section bg-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0" data-aos="fade-right">
+                    <h2 class="text-3xl font-bold text-primary mb-6">Instead of engaging in your habit, use a strategy instead!</h2>
+                    <p class="text-lg text-gray-600 mb-8">
+                        When you feel the urge to engage in your habit, Armatillo helps you implement 
+                        alternative strategies. Access your personalized competing responses and stimulus controls 
+                        to redirect your behavior.
+                    </p>
+                </div>
+                <div class="md:w-1/2 flex justify-center" data-aos="fade-left">
+                    <img src="images/use-strategy-screen.png" alt="Armatillo use strategy screen" class="rounded-lg shadow-xl h-auto w-3/4 max-w-sm">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature 4: Control Stimuli -->
+    <section class="section bg-gray-100">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row-reverse items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0" data-aos="fade-left">
+                    <h2 class="text-3xl font-bold text-primary mb-6">Control your stimuli or use a competing response</h2>
+                    <p class="text-lg text-gray-600 mb-8">
+                        Armatillo provides tools to manage environmental triggers and develop competing responses.
+                        Create a supportive environment that reduces urges and promotes healthier behavior patterns.
+                    </p>
+                </div>
+                <div class="md:w-1/2 flex justify-center" data-aos="fade-right">
+                    <img src="images/control-stimuli-screen.png" alt="Armatillo control stimuli screen" class="rounded-lg shadow-xl h-auto w-3/4 max-w-sm">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature 5: Track Habits -->
+    <section class="section bg-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0" data-aos="fade-right">
+                    <h2 class="text-3xl font-bold text-primary mb-6">Track the habit you wish to reverse!</h2>
+                    <p class="text-lg text-gray-600 mb-8">
+                        Monitor your progress with Armatillo's comprehensive tracking tools. 
+                        Record when habits occur, identify patterns, and see your improvement over time.
+                    </p>
+                </div>
+                <div class="md:w-1/2 flex justify-center" data-aos="fade-left">
+                    <img src="images/tracking-screen.png" alt="Armatillo tracking screen" class="rounded-lg shadow-xl h-auto w-3/4 max-w-sm">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature 6: Dill the Armadillo -->
+    <section class="section bg-gray-100">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row-reverse items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0" data-aos="fade-left">
+                    <h2 class="text-3xl font-bold text-primary mb-6">Dill, the armadillo, will react to your progress and encourage you along the way!</h2>
+                    <p class="text-lg text-gray-600 mb-8">
+                        Meet Dill, your supportive companion throughout your habit reversal journey.
+                        Dill celebrates your successes and provides encouragement when you need it most.
+                    </p>
+                </div>
+                <div class="md:w-1/2 flex justify-center" data-aos="fade-right">
+                    <img src="images/dill-screen.png" alt="Dill the armadillo" class="rounded-lg shadow-xl h-auto w-3/4 max-w-sm">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section bg-primary text-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold mb-6" data-aos="fade-up">Armatillo is in pre-alpha</h2>
+            <p class="text-xl mb-10 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                If you are interested in the app or becoming a tester, please email at:
+            </p>
+            <a href="mailto:josef@feztech.io" class="text-2xl font-bold hover:underline" data-aos="fade-up" data-aos-delay="200">
+                josef@feztech.io
+            </a>
+            <p class="mt-10 text-xl" data-aos="fade-up" data-aos-delay="300">
+                Thanks for your interest!
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary-dark text-white py-6">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <img src="images/feztech-logo.png" alt="Feztech Logo" class="h-8">
+                </div>
+                <div>
+                    <p>&copy; 2025 Armatillo. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize AOS
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({
+                duration: 800,
+                once: true,
+            });
+        });
+    </script>
+</body>
+</html>
